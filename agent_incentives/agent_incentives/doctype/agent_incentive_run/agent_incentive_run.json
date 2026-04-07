@@ -1,0 +1,51 @@
+{
+ "actions": [],
+ "autoname": "format:AIR-{YYYY}-{MM}-{####}",
+ "creation": "2026-03-26 13:27:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "run_section",
+  "company",
+  "period_start",
+  "period_end",
+  "status",
+  "run_on",
+  "triggered_by",
+  "calculation_version",
+  "is_rerun",
+  "rerun_of",
+  "locked_by",
+  "locked_on",
+  "row_count",
+  "total_payout_amount",
+  "exception_count",
+  "notes"
+ ],
+ "fields": [
+  {"fieldname": "run_section", "fieldtype": "Section Break", "label": "Run Details"},
+  {"fieldname": "company", "fieldtype": "Link", "label": "Company", "options": "Company", "reqd": 1},
+  {"fieldname": "period_start", "fieldtype": "Date", "label": "Period Start", "reqd": 1, "in_list_view": 1},
+  {"fieldname": "period_end", "fieldtype": "Date", "label": "Period End", "reqd": 1, "in_list_view": 1},
+  {"fieldname": "status", "fieldtype": "Select", "label": "Status", "options": "Draft\nCalculated\nLocked\nCancelled", "default": "Draft", "in_list_view": 1},
+  {"fieldname": "run_on", "fieldtype": "Datetime", "label": "Run On", "read_only": 1},
+  {"fieldname": "triggered_by", "fieldtype": "Link", "label": "Triggered By", "options": "User", "read_only": 1},
+  {"fieldname": "calculation_version", "fieldtype": "Data", "label": "Calculation Version", "read_only": 1},
+  {"fieldname": "is_rerun", "fieldtype": "Check", "label": "Is Rerun", "default": "0", "read_only": 1},
+  {"fieldname": "rerun_of", "fieldtype": "Link", "label": "Rerun Of", "options": "Agent Incentive Run", "read_only": 1},
+  {"fieldname": "locked_by", "fieldtype": "Link", "label": "Locked By", "options": "User", "read_only": 1},
+  {"fieldname": "locked_on", "fieldtype": "Datetime", "label": "Locked On", "read_only": 1},
+  {"fieldname": "row_count", "fieldtype": "Int", "label": "Ledger Row Count", "read_only": 1},
+  {"fieldname": "total_payout_amount", "fieldtype": "Currency", "label": "Total Payout Amount", "read_only": 1},
+  {"fieldname": "exception_count", "fieldtype": "Int", "label": "Exception Count", "read_only": 1},
+  {"fieldname": "notes", "fieldtype": "Small Text", "label": "Notes"}
+ ],
+ "modified": "2026-04-03 15:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Agent Incentives",
+ "name": "Agent Incentive Run",
+ "owner": "Administrator",
+ "permissions": [
+  {"create": 1, "delete": 1, "read": 1, "write": 1, "role": "System Manager"}
+ ]
+}

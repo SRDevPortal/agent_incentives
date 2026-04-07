@@ -1,0 +1,43 @@
+{
+ "actions": [],
+ "creation": "2026-03-26 13:27:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "general_section",
+  "incentive_basis",
+  "default_threshold_mode",
+  "default_threshold_multiplier",
+  "default_incentive_percentage",
+  "column_break_1",
+  "deduct_credit_notes",
+  "credit_note_deduction_timing",
+  "rounding_rule",
+  "eligibility_section",
+  "eligible_payment_state",
+  "include_refunds"
+ ],
+ "fields": [
+  {"fieldname": "general_section", "fieldtype": "Section Break", "label": "General"},
+  {"fieldname": "incentive_basis", "fieldtype": "Select", "label": "Incentive Basis", "options": "Payment Entry Posting Date\nInvoice Date", "default": "Payment Entry Posting Date"},
+  {"fieldname": "default_threshold_mode", "fieldtype": "Select", "label": "Default Threshold Mode", "options": "Salary Multiple\nFixed Amount", "default": "Salary Multiple"},
+  {"fieldname": "default_threshold_multiplier", "fieldtype": "Float", "label": "Default Threshold Multiplier", "default": "1"},
+  {"fieldname": "default_incentive_percentage", "fieldtype": "Percent", "label": "Default Incentive %", "default": "0"},
+  {"fieldname": "column_break_1", "fieldtype": "Column Break"},
+  {"fieldname": "deduct_credit_notes", "fieldtype": "Check", "label": "Deduct Credit Notes", "default": "1"},
+  {"fieldname": "credit_note_deduction_timing", "fieldtype": "Select", "label": "Credit Note Deduction Timing", "options": "Credit Note Posting Period\nOriginal Invoice Period", "default": "Credit Note Posting Period"},
+  {"fieldname": "rounding_rule", "fieldtype": "Select", "label": "Rounding Rule", "options": "No Rounding\nNearest Rupee\nNearest 10", "default": "No Rounding"},
+  {"fieldname": "eligibility_section", "fieldtype": "Section Break", "label": "Eligibility"},
+  {"fieldname": "eligible_payment_state", "fieldtype": "Select", "label": "Eligible Payment State", "options": "Submitted Only\nSubmitted And Reconciled", "default": "Submitted Only"},
+  {"fieldname": "include_refunds", "fieldtype": "Check", "label": "Include Refunds in Deductions", "default": "1"}
+ ],
+ "issingle": 1,
+ "modified": "2026-03-26 13:27:00.000000",
+ "modified_by": "Administrator",
+ "module": "Agent Incentives",
+ "name": "Agent Incentive Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {"create": 1, "delete": 1, "read": 1, "write": 1, "role": "System Manager"}
+ ]
+}
