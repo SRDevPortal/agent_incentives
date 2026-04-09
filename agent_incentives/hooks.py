@@ -1,8 +1,8 @@
 app_name = "agent_incentives"
 app_title = "Agent Incentives"
-app_publisher = "Admin"
+app_publisher = "SRIAAS"
 app_description = "Agent incentive engine for encounter-owned payment collections"
-app_email = "admin@example.com"
+app_email = "webdevelopersriaas@gmail.com"
 app_license = "MIT"
 
 fixtures = []
