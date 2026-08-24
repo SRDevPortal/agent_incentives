@@ -1,7 +1,7 @@
 import frappe
 from frappe.utils import now_datetime
 
-from agent_incentives.agent_incentives.services.calculation import build_run_rows
+from agent_incentives.services.calculation import build_run_rows
 
 
 CALCULATION_VERSION = "phase2-v0.1"
@@ -55,7 +55,7 @@ def calculate_run(run_name, force_rebuild=False):
 
     run.status = "Calculated"
     run.run_on = now_datetime()
-    run.triggered_by = frappe.session.user
+    run.triggered_by = frappe.session.use
     run.calculation_version = CALCULATION_VERSION
     run.row_count = len(rows)
     run.total_payout_amount = total_payout

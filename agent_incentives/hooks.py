@@ -5,7 +5,12 @@ app_description = "Agent incentive engine for encounter-owned payment collection
 app_email = "webdevelopersriaas@gmail.com"
 app_license = "MIT"
 
+required_apps = ["erpnext"]
+
 fixtures = []
+
+after_install = "agent_incentives.install.after_install"
+after_migrate = "agent_incentives.install.after_migrate"
 
 scheduler_events = {
     "daily": [
