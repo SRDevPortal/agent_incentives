@@ -1,6 +1,6 @@
 import frappe
 
-from agent_incentives.agent_incentives.services.attribution import resolve_incentive_owner_from_invoice
+from agent_incentives.services.attribution import resolve_incentive_owner_from_invoice
 
 
 def get_collection_rows(company, period_start, period_end):

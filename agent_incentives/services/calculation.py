@@ -1,8 +1,8 @@
 from collections import defaultdict
 
-from agent_incentives.agent_incentives.api.formulas import calculate_incentive, calculate_threshold
-from agent_incentives.agent_incentives.services.plans import get_applicable_plan
-from agent_incentives.agent_incentives.services.queries import get_collection_rows, get_credit_note_rows
+from agent_incentives.api.formulas import calculate_incentive, calculate_threshold
+from agent_incentives.services.plans import get_applicable_plan
+from agent_incentives.services.queries import get_collection_rows, get_credit_note_rows
 
 
 def build_run_rows(company, period_start, period_end):
