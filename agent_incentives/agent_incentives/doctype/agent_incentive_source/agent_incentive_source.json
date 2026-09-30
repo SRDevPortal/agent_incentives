@@ -1,0 +1,62 @@
+{
+  "doctype": "DocType",
+  "name": "Agent Incentive Source",
+  "module": "Agent Incentives",
+  "engine": "InnoDB",
+  "fields": [
+    {
+      "fieldname": "source_key",
+      "fieldtype": "Data",
+      "label": "Source Key",
+      "reqd": 1
+    },
+    {
+      "fieldname": "payment_entry",
+      "fieldtype": "Link",
+      "label": "Payment Entry",
+      "options": "Payment Entry",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "invoice",
+      "fieldtype": "Link",
+      "label": "Invoice",
+      "options": "Sales Invoice",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Posting Date",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "received_amount",
+      "fieldtype": "Currency",
+      "label": "Received Amount",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "agent_user",
+      "fieldtype": "Link",
+      "label": "Agent User",
+      "options": "User"
+    },
+    {
+      "fieldname": "fingerprint",
+      "fieldtype": "Data",
+      "label": "Fingerprint"
+    }
+  ],
+  "field_order": [
+    "source_key",
+    "payment_entry",
+    "invoice",
+    "posting_date",
+    "received_amount",
+    "agent_user",
+    "fingerprint"
+  ],
+  "permissions": [],
+  "istable": 1
+}

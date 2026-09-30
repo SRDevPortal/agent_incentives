@@ -2,7 +2,7 @@ import frappe
 from frappe.utils import getdate
 
 
-def get_applicable_plan(agent_user, company, period_start, period_end):
+def get_applicable_plan(agent_user, company, period_start, period_end, required=True):
     period_start = getdate(period_start)
     period_end = getdate(period_end)
     plans = frappe.get_all(
@@ -11,6 +11,7 @@ def get_applicable_plan(agent_user, company, period_start, period_end):
             "agent_user": agent_user,
             "company": company,
             "plan_status": "Active",
+            "active": 1,
             "docstatus": ["<", 2],
         },
         fields=[
@@ -33,7 +34,11 @@ def get_applicable_plan(agent_user, company, period_start, period_end):
         if start <= period_start and end >= period_end:
             matches.append(plan)
     if not matches:
+        if not required:
+            return None
         frappe.throw(f"No active incentive plan found for agent {agent_user} in company {company} covering the run period.")
     if len(matches) > 1:
+        if not required:
+            return None
         frappe.throw(f"Multiple active incentive plans found for agent {agent_user} in company {company} covering the run period.")
     return matches[0]

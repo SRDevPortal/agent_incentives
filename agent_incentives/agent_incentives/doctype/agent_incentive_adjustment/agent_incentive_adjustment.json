@@ -1,0 +1,82 @@
+{
+  "doctype": "DocType",
+  "name": "Agent Incentive Adjustment",
+  "module": "Agent Incentives",
+  "autoname": "hash",
+  "track_changes": 1,
+  "fields": [
+    {
+      "fieldname": "ledger",
+      "fieldtype": "Link",
+      "options": "Agent Incentive Ledger",
+      "reqd": 1,
+      "label": "Finalized Ledger",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "options": "Company",
+      "read_only": 1,
+      "label": "Company"
+    },
+    {
+      "fieldname": "agent_user",
+      "fieldtype": "Link",
+      "options": "User",
+      "read_only": 1,
+      "label": "Agent User",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "reqd": 1,
+      "label": "Correction Amount",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "reason",
+      "fieldtype": "Small Text",
+      "reqd": 1,
+      "label": "Review Reason"
+    },
+    {
+      "fieldname": "source_reference",
+      "fieldtype": "Data",
+      "label": "Source / Reversed Correction Reference"
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Link",
+      "options": "User",
+      "read_only": 1,
+      "label": "Approved By"
+    },
+    {
+      "fieldname": "approved_on",
+      "fieldtype": "Datetime",
+      "read_only": 1,
+      "label": "Approved On"
+    }
+  ],
+  "field_order": [
+    "ledger",
+    "company",
+    "agent_user",
+    "amount",
+    "reason",
+    "source_reference",
+    "approved_by",
+    "approved_on"
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "create": 1,
+      "write": 1,
+      "report": 1
+    }
+  ]
+}

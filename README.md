@@ -1,35 +1,16 @@
 # Agent Incentives
 
-Internal Frappe app for agent incentive configuration, plan management, and ledger tracking based on encounter-owned collections.
+Frappe/ERPNext application for monthly threshold-based incentives on submitted Receive Payment Entry allocations.
 
-## Current capabilities
+- Finance workbench: /app/agent-incentive-workbench
+- Explicit enrollment and per-user effective plans
+- Mutually exclusive active enrollment with WFH Commission
+- Receipt evidence, provisional refresh and month-end finalization
+- Immutable reviewed corrections and verified partial-payment tracking
+- Self-only My Incentives cards in vobiz-agent-analytics
 
-- `Agent Incentive Settings` single doctype
-- `Agent Incentive Plan` doctype
-- `Agent Incentive Run` doctype
-- `Agent Incentive Ledger` doctype
-- formula helper functions for threshold and payout logic
-- setup status API
-- smoke-check API
+See [the operator guide](docs/WORKBENCH.md) for configuration, source attribution, payment verification and test commands.
 
-## Install
+Installation/migration adds app-owned invoice attribution fields and indexes. No users are automatically enrolled and no historical attribution or accounting entries are generated. Processing starts after finance configures Settings.
 
-```bash
-cd $PATH_TO_YOUR_BENCH
-bench get-app /Users/admin/.openclaw/workspace/agent_incentives
-bench --site yoursite install-app agent_incentives
-bench --site yoursite migrate
-bench --site yoursite clear-cache
-```
-
-## First-run flow
-1. Open `Agent Incentive Settings`
-2. Configure threshold defaults and deduction behavior
-3. Create one active `Agent Incentive Plan` per sales agent
-4. Verify setup using:
-   - `/api/method/agent_incentives.api.setup.get_setup_status`
-   - `/api/method/agent_incentives.api.setup.smoke_check`
-5. Run monthly calculations into `Agent Incentive Ledger`
-
-## Important boundary
-This app is plug-and-play from the code side for settings/plans/ledger structure, but real incentive calculation still depends on frozen attribution fields and ERP-side collection data being present and trustworthy.
+Accounting recognition Payout, bank transfers and payroll are outside this release; settlement tracking verifies already submitted accounting payments.

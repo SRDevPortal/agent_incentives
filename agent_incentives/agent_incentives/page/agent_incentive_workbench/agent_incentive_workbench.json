@@ -1,0 +1,13 @@
+{
+  "doctype": "Page",
+  "name": "agent-incentive-workbench",
+  "page_name": "agent-incentive-workbench",
+  "title": "Agent Incentive Workbench",
+  "module": "Agent Incentives",
+  "standard": "Yes",
+  "roles": [
+    {
+      "role": "System Manager"
+    }
+  ]
+}

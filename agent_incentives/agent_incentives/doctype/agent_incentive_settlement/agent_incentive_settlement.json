@@ -1,0 +1,97 @@
+{
+  "doctype": "DocType",
+  "name": "Agent Incentive Settlement",
+  "module": "Agent Incentives",
+  "engine": "InnoDB",
+  "fields": [
+    {
+      "fieldname": "ledger",
+      "fieldtype": "Link",
+      "label": "Ledger",
+      "options": "Agent Incentive Ledger",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "Company",
+      "options": "Company",
+      "read_only": 1
+    },
+    {
+      "fieldname": "agent_user",
+      "fieldtype": "Link",
+      "label": "Agent User",
+      "options": "User",
+      "read_only": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "journal_entry",
+      "fieldtype": "Link",
+      "label": "Journal Entry",
+      "options": "Journal Entry",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "journal_row",
+      "fieldtype": "Data",
+      "label": "Journal Row",
+      "reqd": 1
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Amount",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Posting Date",
+      "read_only": 1
+    },
+    {
+      "fieldname": "state",
+      "fieldtype": "Select",
+      "label": "State",
+      "options": "Verified\nReversed",
+      "default": "Verified",
+      "read_only": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "reversal_reason",
+      "fieldtype": "Small Text",
+      "label": "Reversal Reason",
+      "read_only": 1
+    }
+  ],
+  "field_order": [
+    "ledger",
+    "company",
+    "agent_user",
+    "journal_entry",
+    "journal_row",
+    "amount",
+    "posting_date",
+    "state",
+    "reversal_reason"
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "report": 1,
+      "export": 1
+    }
+  ],
+  "autoname": "hash",
+  "track_changes": 1
+}

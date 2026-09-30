@@ -5,6 +5,7 @@ from frappe.utils import getdate
 
 class AgentIncentivePlan(Document):
 	def validate(self):
+		self._validate_workbench_policy()
 		self._normalize_fields()
 		self._populate_agent_name()
 		self._validate_dates()
@@ -95,3 +96,17 @@ class AgentIncentivePlan(Document):
 		end1 = getdate(end1) if end1 else getdate("9999-12-31")
 		end2 = getdate(end2) if end2 else getdate("9999-12-31")
 		return start1 <= end2 and start2 <= end1
+
+
+	def _validate_workbench_policy(self):
+		from agent_incentives.domain import month_period
+		from agent_incentives.participation import lock_participation
+		lock_participation()
+		if self.effective_from and getdate(self.effective_from).day != 1:
+			frappe.throw("Plans must start on the first day of a month")
+		if self.effective_to and getdate(self.effective_to) != month_period(self.effective_to)[1]:
+			frappe.throw("Plans must end on the last day of a month")
+		if not self.is_new() and frappe.db.exists("Agent Incentive Ledger", {"plan_reference": self.name}):
+			old = self.get_doc_before_save()
+			if old and any(old.get(f) != self.get(f) for f in ("company","agent_user","salary_amount","threshold_mode","threshold_multiplier","threshold_amount","incentive_percentage","effective_from")):
+				frappe.throw("This plan has calculation history. Create a new effective-dated plan instead")
