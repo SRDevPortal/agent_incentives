@@ -65,3 +65,5 @@ assets/
 # -------------------------
 tmp/
 temp/
+__pycache__/
+*.py[cod]
